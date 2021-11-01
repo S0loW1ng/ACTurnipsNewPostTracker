@@ -13,13 +13,12 @@ import traceback
 class Display:
     font24 = ImageFont.truetype('./pic/Font.ttc', 24)
     font18 = ImageFont.truetype('./pic/Font.ttc', 18)
-
+    epd = epd2in66.EPD()
     Himage = Image.new('1', (epd.height, epd.width), 0xFF)  # 0xFF: clear the f$
 
     def __init__(self):
 
         logging.info("epd2in66 Demo")
-        epd = epd2in66.EPD()
         logging.info("init and Clear")
         epd.init(0)
         epd.Clear()
