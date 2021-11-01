@@ -11,8 +11,8 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 
 class Display:
-    font24 = ImageFont.truetype("/Library/fonts/Arial.tff", 24)
-    font18 = ImageFont.truetype("/Library/fonts/Arial.tff", 18)
+    font24 = ImageFont.truetype('./pic/Font.ttc', 24)
+    font18 = ImageFont.truetype('./pic/Font.ttc', 18)
 
     Himage = Image.new('1', (epd.height, epd.width), 0xFF)  # 0xFF: clear the f$
 
