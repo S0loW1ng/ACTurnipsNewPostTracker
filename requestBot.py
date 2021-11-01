@@ -3,11 +3,15 @@ import requests as req
 from operator import attrgetter
 from postObject import post
 from datetime import datetime as dt
+from queue import Queue
+from display import Display as disp
 
 
 class requestBot:
     postArray = []
     seenPosts = []
+    q = Queue(maxsize=3)
+    dis = disp()
 
     def __init__(self, link):
         self.link = link
@@ -26,7 +30,16 @@ class requestBot:
                                                jsonData["data"]["children"][2 + i]["data"]["created_utc"],
                                                jsonData["data"]["children"][2 + i]["data"]["url"],
                                                jsonData["data"]["children"][2 + i]["data"]["id"]))
+
                     self.seenPosts.append(jsonData["data"]["children"][2 + i]["data"]["id"])
+
+                    if self.q.full():
+                        self.q.get()
+                        self.q.put(post(jsonData["data"]["children"][2 + i]["data"]["title"],
+                                        jsonData["data"]["children"][2 + i]["data"]["created_utc"],
+                                        jsonData["data"]["children"][2 + i]["data"]["url"],
+                                        jsonData["data"]["children"][2 + i]["data"]["id"]))
+
         else:
             print("Error: %d" % request.status_code)
 
@@ -34,5 +47,6 @@ class requestBot:
         print("Current Poll Time:", dt.now())
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
-        for post in self.postArray:
-            post.displayInfo()
+        disp.display(self.q)
+        for postInQ in self.q:
+            postInQ.displayInfo()
