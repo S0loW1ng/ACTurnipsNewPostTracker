@@ -11,8 +11,8 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 
 class Display:
-    picdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'pic')
-    libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
+    picdir = '/home/retr0/ACTurnipsNewPostTracker/pic'
+    libdir = '/home/retr0/ACTurnipsNewPostTracker/pic'
     if os.path.exists(libdir):
         sys.path.append(libdir)
 
