@@ -47,6 +47,6 @@ class requestBot:
         print("Current Poll Time:", dt.now())
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
-        dis.display(self.q.queue)
+        self.dis.display(self.q.queue)
         for postInQ in self.q.queue:
             postInQ.displayInfo()
