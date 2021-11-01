@@ -11,13 +11,8 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 
 class Display:
-    picdir = '/home/retr0/ACTurnipsNewPostTracker/pic'
-    libdir = '/home/retr0/ACTurnipsNewPostTracker/pic'
-    if os.path.exists(libdir):
-        sys.path.append(libdir)
-
-    font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
-    font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
+    font24 = ImageFont.truetype("arial.ttf", 24)
+    font18 = ImageFont.truetype("arial.ttf", 18)
 
     Himage = Image.new('1', (epd.height, epd.width), 0xFF)  # 0xFF: clear the f$
 
