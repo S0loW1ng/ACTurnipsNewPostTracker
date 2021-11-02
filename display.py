@@ -29,5 +29,5 @@ class Display:
         draw.text((10, 0), array[0], font=font24, fill=0)
         draw.text((10, 20), array[1], font=font24, fill=0)
         draw.text((10, 100), array[2], font=font24, fill=0)
-        self.epd.display(epd.getbuffer(Himage))
+        self.epd.display(epd.getbuffer(self.Himage))
         self.epd.sleep()
