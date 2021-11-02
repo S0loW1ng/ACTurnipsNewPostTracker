@@ -12,3 +12,6 @@ class post:
         print(self.title)
         print(datetime.datetime.fromtimestamp(self.date))
         print(self.url)
+
+    def toString(self):
+        return str(self.title + " " + self.date)

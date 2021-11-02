@@ -10,12 +10,12 @@ from display import Display as disp
 class requestBot:
     postArray = []
     seenPosts = []
-    q = Queue(maxsize=3)
     dis = disp()
 
     def __init__(self, link):
         self.link = link
         self.postArray = []
+        self.history = []
 
     def requestPrices(self):
         request = req.get(url=self.link, headers={
@@ -25,20 +25,11 @@ class requestBot:
             self.postArray = []
             jsonData = json.loads(request.text)
             for i in range(0, 3):
-                if jsonData["data"]["children"][2 + i]["data"]["id"] not in self.seenPosts:
                     self.postArray.append(post(jsonData["data"]["children"][2 + i]["data"]["title"],
                                                jsonData["data"]["children"][2 + i]["data"]["created_utc"],
                                                jsonData["data"]["children"][2 + i]["data"]["url"],
                                                jsonData["data"]["children"][2 + i]["data"]["id"]))
-
                     self.seenPosts.append(jsonData["data"]["children"][2 + i]["data"]["id"])
-
-                    if self.q.full():
-                        self.q.get()
-                        self.q.put(post(jsonData["data"]["children"][2 + i]["data"]["title"],
-                                        jsonData["data"]["children"][2 + i]["data"]["created_utc"],
-                                        jsonData["data"]["children"][2 + i]["data"]["url"],
-                                        jsonData["data"]["children"][2 + i]["data"]["id"]))
 
         else:
             print("Error: %d" % request.status_code)
@@ -47,6 +38,7 @@ class requestBot:
         print("Current Poll Time:", dt.now())
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
-        self.dis.display(self.q.queue)
-        for postInQ in self.q.queue:
-            postInQ.displayInfo()
+        self.dis.display(self.postArray)
+        for post in self.postArray:
+            print(post.toString())
+
