@@ -14,4 +14,4 @@ class post:
         print(self.url)
 
     def toString(self):
-        return str(self.title + " " + self.date)
+        return str(str(self.title )+ " " + str(self.date))
