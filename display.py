@@ -26,8 +26,8 @@ class Display:
     def display(self,array):
 
         draw = ImageDraw.Draw(self.Himage);
-        draw.text((10, 0), array[0], font=self.font18, fill=0)
-        draw.text((10, 20), array[1], font=self.font18, fill=0)
-        draw.text((10, 100), array[2], font=self.font18, fill=0)
+        draw.text((10, 0), array[0].toString(), font=self.font18, fill=0)
+        draw.text((10, 20), array[1].toString(), font=self.font18, fill=0)
+        draw.text((10, 100), array[2].toString(), font=self.font18, fill=0)
         self.epd.display(epd.getbuffer(self.Himage))
         self.epd.sleep()
