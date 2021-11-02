@@ -20,8 +20,8 @@ class Display:
 
         logging.info("epd2in66 Demo")
         logging.info("init and Clear")
-        epd.init(0)
-        epd.Clear()
+        self.epd.init(0)
+        self.epd.Clear()
 
     def display(self,array):
 
@@ -29,5 +29,5 @@ class Display:
         draw.text((10, 0), array[0], font=font24, fill=0)
         draw.text((10, 20), array[1], font=font24, fill=0)
         draw.text((10, 100), array[2], font=font24, fill=0)
-        epd.display(epd.getbuffer(Himage))
-        epd.sleep()
+        self.epd.display(epd.getbuffer(Himage))
+        self.epd.sleep()
