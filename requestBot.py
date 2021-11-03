@@ -37,7 +37,7 @@ class requestBot:
         dis = disp()
         print("Current Poll Time:", dt.now())
         self.requestPrices()
-        postArray.sort(key=attrgetter('date'), reverse=True)
+        self.postArray.sort(key=attrgetter('date'), reverse=True)
         dis.display(self.postArray)
         del dis
         for post in self.postArray:
