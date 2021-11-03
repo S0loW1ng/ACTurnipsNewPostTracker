@@ -6,7 +6,6 @@ from datetime import datetime as dt
 from queue import Queue
 from display import Display as disp
 
-
 class requestBot:
     postArray = []
     seenPosts = []

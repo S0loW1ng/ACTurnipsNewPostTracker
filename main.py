@@ -13,9 +13,7 @@ def print_hi(name):
 
 def task():
     bot.displayPrices()
-    del bot
     print("______________________________________________________________________")
-    bot = requestBot('https://www.reddit.com/r/acturnips.json')
 
 if __name__ == '__main__':
 
