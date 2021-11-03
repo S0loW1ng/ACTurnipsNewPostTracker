@@ -29,12 +29,9 @@ class Display:
         draw.text((10, 0), array[0].toString(), font=self.font18, fill=0)
         draw.text((10, 20), array[1].toString(), font=self.font18, fill=0)
         draw.text((10, 100), array[2].toString(), font=self.font18, fill=0)
-        try:
-            #If my old mentor would see this I would get shot.
-            self.epd.display(self.epd.getbuffer(self.Himage))
-            self.epd.init(0)
-            self.epd.Clear()
 
-            self.epd.sleep()
-        except:
-            return
+        self.epd.display(self.epd.getbuffer(self.Himage))
+        self.epd.init(0)
+        self.epd.Clear()
+
+        self.epd.sleep()
