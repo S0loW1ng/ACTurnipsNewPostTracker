@@ -17,8 +17,8 @@ def task():
 
 
 if __name__ == '__main__':
-    sch.every(10).seconds.do(task)
+
 
     while (True):
-        sch.run_pending()
-        time.sleep(1);
+        task()
+        time.sleep(10);
