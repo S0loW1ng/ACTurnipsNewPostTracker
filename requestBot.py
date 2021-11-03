@@ -9,7 +9,7 @@ from display import Display as disp
 class requestBot:
     postArray = []
     seenPosts = []
-    dis = disp()
+
 
     def __init__(self, link):
         self.link = link
@@ -34,10 +34,12 @@ class requestBot:
             print("Error: %d" % request.status_code)
 
     def displayPrices(self):
+        dis = disp()
         print("Current Poll Time:", dt.now())
-        self.requestPrices()
-        self.postArray.sort(key=attrgetter('date'), reverse=True)
-        self.dis.display(self.postArray)
+        requestPrices()
+        postArray.sort(key=attrgetter('date'), reverse=True)
+        dis.display(self.postArray)
+        del dis
         for post in self.postArray:
             print(post.toString())
 
