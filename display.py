@@ -32,6 +32,9 @@ class Display:
         try:
             #If my old mentor would see this I would get shot.
             self.epd.display(self.epd.getbuffer(self.Himage))
+            self.epd.init(0)
+            self.epd.Clear()
+
             self.epd.sleep()
         except:
             return
