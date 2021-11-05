@@ -44,7 +44,7 @@ class requestBot:
         draw = ImageDraw.Draw(Himage)
         draw.text((10,0),str(dt.now()),font=font)
 
-        Himage = Himage.save("lolz.jpg")
+        Himage = Himage.save("lolz.bmp")
         for post in self.postArray:
             print(post.toString())
 
