@@ -1,18 +1,18 @@
 import sys
 import os
-from waveshare_epd import epd2in13_V2
+from waveshare_epd import epd_2in13bc_test
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
-epd = epd2in13_V2.EPD()
+epd = epd_2in13bc_test.EPD()
 epd.init(0)
 epd.Clear()
 Himage = Image.open("lolz.jpg")  # 0xFF: clear the f$
 epd.display(epd.getbuffer(Himage))
 epd.sleep()
 
-epd2in13_V2.epdconfig.module_exit()
+epd_2in13bc_test.epdconfig.module_exit()
 
 
 
