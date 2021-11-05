@@ -3,8 +3,9 @@ import requests as req
 from operator import attrgetter
 from postObject import post
 from datetime import datetime as dt
+from PIL import Image, ImageDraw, ImageFont
 from queue import Queue
-from display import Display as disp
+
 
 class requestBot:
     postArray = []
@@ -34,12 +35,16 @@ class requestBot:
             print("Error: %d" % request.status_code)
 
     def displayPrices(self):
-        dis = disp()
         print("Current Poll Time:", dt.now())
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
-        dis.display(self.postArray)
-        del dis
+        Himage = Image.new('1', (296,152), 0xFF)  # 0xFF: clear the f$
+        #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",14)
+        draw = ImageDraw.Draw(Himage)
+        draw.text((10,0),str(dt.now()),font=font)
+
+        Himage = Himage.save("lolz.jpg")
         for post in self.postArray:
             print(post.toString())
 

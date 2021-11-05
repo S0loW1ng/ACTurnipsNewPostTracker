@@ -15,9 +15,10 @@ def task():
     bot.displayPrices()
     print("______________________________________________________________________")
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    sch.every(5).seconds.do(task)
 
     while (True):
-        task()
-        time.sleep(10);
+        sch.run_pending()
+        time.sleep(1);
