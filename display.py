@@ -7,7 +7,7 @@ import traceback
 
 epd = epd2in13d.EPD()
 epd.init()
-epd.Clear()
+epd.Clear(0xFF)
 Himage = Image.open("lolz.jpg")  # 0xFF: clear the f$
 epd.display(epd.getbuffer(Himage))
 epd.sleep()
