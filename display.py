@@ -6,7 +6,7 @@ from PIL import Image,ImageDraw,ImageFont
 import traceback
 
 epd = epd2in13d.EPD()
-epd.init(0)
+epd.init()
 epd.Clear()
 Himage = Image.open("lolz.jpg")  # 0xFF: clear the f$
 epd.display(epd.getbuffer(Himage))
