@@ -15,4 +15,6 @@ class post:
         print(self.url)
 
     def toString(self):
-        return str(str(self.title )+ " " + str(self.date))
+        title = self.title
+        title.encode('latin-1', 'ignore')
+        return str(str(title)+ " " + str(self.date))
