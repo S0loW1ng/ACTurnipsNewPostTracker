@@ -1,6 +1,7 @@
 import datetime
 
 
+
 class post:
     def __init__(self, title, date, url, id):
         self.title = title
@@ -10,7 +11,7 @@ class post:
 
     def displayInfo(self):
         print(self.title)
-        print(datetime.datetime.fromtimestamp(self.date))
+        print(datetime.datetime.fromtimestamp(self.date).strftime('%c'))
         print(self.url)
 
     def toString(self):
