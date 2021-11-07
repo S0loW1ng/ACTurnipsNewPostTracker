@@ -16,5 +16,5 @@ class post:
 
     def toString(self):
         title = self.title
-        title.encode('latin-1', 'ignore')
+        title.encode('utf-8' 'ignore')
         return str(str(title)+ " " + str(self.date))
