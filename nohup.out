@@ -1,0 +1,69 @@
+Current Poll Time: 2021-11-07 10:01:36.206747
+Traceback (most recent call last):
+  File "./main.py", line 23, in <module>
+    sch.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "./main.py", line 15, in task
+    bot.displayPrices()
+  File "/home/pi/ACTurnipsNewPostTracker/requestBot.py", line 47, in displayPrices
+    Himage = Himage.save("lolz.bmp")
+  File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1991, in save
+    fp = builtins.open(filename, "w+b")
+PermissionError: [Errno 13] Permission denied: 'lolz.bmp'
+Current Poll Time: 2021-11-07 10:06:48.432857
+Traceback (most recent call last):
+  File "./main.py", line 23, in <module>
+    sch.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "./main.py", line 15, in task
+    bot.displayPrices()
+  File "/home/pi/ACTurnipsNewPostTracker/requestBot.py", line 47, in displayPrices
+    Himage = Himage.save("lolz.bmp")
+  File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1991, in save
+    fp = builtins.open(filename, "w+b")
+PermissionError: [Errno 13] Permission denied: 'lolz.bmp'
+Current Poll Time: 2021-11-07 10:12:14.309422
+Traceback (most recent call last):
+  File "./main.py", line 23, in <module>
+    sch.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 780, in run_pending
+    default_scheduler.run_pending()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 100, in run_pending
+    self._run_job(job)
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 172, in _run_job
+    ret = job.run()
+  File "/usr/local/lib/python3.7/dist-packages/schedule/__init__.py", line 661, in run
+    ret = self.job_func()
+  File "./main.py", line 15, in task
+    bot.displayPrices()
+  File "/home/pi/ACTurnipsNewPostTracker/requestBot.py", line 47, in displayPrices
+    Himage = Himage.save("lolz.bmp")
+  File "/usr/lib/python3/dist-packages/PIL/Image.py", line 1991, in save
+    fp = builtins.open(filename, "w+b")
+PermissionError: [Errno 13] Permission denied: 'lolz.bmp'
+Traceback (most recent call last):
+  File "./main.py", line 24, in <module>
+    time.sleep(1);
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "./main.py", line 24, in <module>
+    time.sleep(1);
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "./main.py", line 24, in <module>
+    time.sleep(1);
+KeyboardInterrupt

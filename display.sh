@@ -1,1 +1,1 @@
-python3 ./display.py
+sudo python3 ./display.py
