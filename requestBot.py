@@ -1,4 +1,6 @@
 import json
+import os
+
 import requests as req
 from operator import attrgetter
 from postObject import post
@@ -36,14 +38,23 @@ class requestBot:
 
     def displayPrices(self):
         print("Current Poll Time:", dt.now())
+        location = '/home/retr0/ACTurnipsNewPostTracker'
+        file = 'lolz.bmp'
+        path = os.path.join(location, file)
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
         Himage = Image.new('1', (212,104), 0xFF)  # 0xFF: clear the f$
         #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
         draw = ImageDraw.Draw(Himage)
-        draw.text((10,0),str(dt.now()),font=font)
+        draw.text((10,0),str(dt.now().date()),font=font)
 
+        try:
+            os.remove(path)
+            #print("% s removed successfully" % path)
+        except OSError as error:
+            r = 1;
+        
         Himage = Himage.save("lolz.bmp")
         for post in self.postArray:
             print(post.toString())
