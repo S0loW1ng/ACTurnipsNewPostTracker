@@ -1,5 +1,6 @@
 import json
 import os
+import textwrap
 
 import requests as req
 from operator import attrgetter
@@ -44,14 +45,7 @@ class requestBot:
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
         Himage = Image.new('1', (212,104), 0xFF)  # 0xFF: clear the f$
-        #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
-        fontsmall = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 10)
-        draw = ImageDraw.Draw(Himage)
-        draw.text((10,0),str(str(dt.now().date()) + " " + str(dt.now().time())),font=font)
-        draw.text((10,15),str(self.postArray[0].toString()),font=fontsmall)
-        draw.text((10, 30), str(self.postArray[1].toString()), font=fontsmall)
-        draw.text((10, 45), str(self.postArray[2].toString()), font=fontsmall)
+        self.displayAndTextWrap(40,Himage)
 
         try:
             os.remove(path)
@@ -62,3 +56,16 @@ class requestBot:
         Himage = Himage.save("lolz.bmp")
         for post in self.postArray:
             print(post.toString())
+
+    def displayAndTextWrap(self,margin,Himage):
+        #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
+        fontsmall = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 8)
+        draw = ImageDraw.Draw(Himage)
+        draw.text((10,0),str(str(dt.now().date()) + " " + str(dt.now().time())),font=font)
+
+        offset = margin
+        for post in self.postArray:
+            for line in textwrap.wrap(post.toString(), width=10):
+                draw.text((margin, offset), line, font=fontsmall, fill="#aa0000")
+                offset += font.getsize(line)[1]
