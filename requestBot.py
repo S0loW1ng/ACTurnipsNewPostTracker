@@ -47,7 +47,7 @@ class requestBot:
         #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
         draw = ImageDraw.Draw(Himage)
-        draw.text((10,0),str(dt.now().date() + " " + dt.now().time()),font=font)
+        draw.text((10,0),str(str(dt.now().date()) + " " + str(dt.now().time())),font=font)
 
         try:
             os.remove(path)
