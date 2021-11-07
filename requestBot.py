@@ -40,7 +40,7 @@ class requestBot:
         self.postArray.sort(key=attrgetter('date'), reverse=True)
         Himage = Image.new('1', (296,152), 0xFF)  # 0xFF: clear the f$
         #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
-        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",14)
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
         draw = ImageDraw.Draw(Himage)
         draw.text((10,0),str(dt.now()),font=font)
 
