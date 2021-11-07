@@ -46,11 +46,12 @@ class requestBot:
         Himage = Image.new('1', (212,104), 0xFF)  # 0xFF: clear the f$
         #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
+        fontsmall = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 5)
         draw = ImageDraw.Draw(Himage)
         draw.text((10,0),str(str(dt.now().date()) + " " + str(dt.now().time())),font=font)
-        draw.text((13,0),str(self.postArray[0].toString()),5)
-        draw.text((15, 0), str(self.postArray[1].toString()), 5)
-        draw.text((17, 0), str(self.postArray[2].toString()), 5)
+        draw.text((30,0),str(self.postArray[0].toString()),font=fontsmall)
+        draw.text((60, 0), str(self.postArray[1].toString()), font=fontsmall)
+        draw.text((90, 0), str(self.postArray[2].toString()), font=fontsmall)
 
         try:
             os.remove(path)
