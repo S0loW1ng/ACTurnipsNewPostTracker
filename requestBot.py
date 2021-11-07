@@ -61,4 +61,3 @@ class requestBot:
         Himage = Himage.save("lolz.bmp")
         for post in self.postArray:
             print(post.toString())
-
