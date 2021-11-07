@@ -14,6 +14,8 @@ Himage = Image.open("./lolz.bmp")  # 0xFF: clear the f$
 epd.display(epd.getbuffer(Himage),epd.getbuffer(HRYimage))
 time.sleep(2)
 epd.sleep()
+print("Job done")
+
 
 
 
