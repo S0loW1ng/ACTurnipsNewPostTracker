@@ -39,25 +39,17 @@ class requestBot:
 
     def displayPrices(self):
         print("Current Poll Time:", dt.now())
-        location = '/home/retr0/ACTurnipsNewPostTracker'
-        file = 'lolz.bmp'
-        path = os.path.join(location, file)
         self.requestPrices()
         self.postArray.sort(key=attrgetter('date'), reverse=True)
         Himage = Image.new('1', (212,104), 0xFF)  # 0xFF: clear the f$
-        self.displayAndTextWrap(40,Himage)
-
-        try:
-            os.remove(path)
-            #print("% s removed successfully" % path)
-        except OSError as error:
-            r = 1;
-        
-        Himage = Himage.save("lolz.bmp")
-        for post in self.postArray:
-            print(post.toString())
+        self.displayAndTextWrap(10,Himage)
 
     def displayAndTextWrap(self,margin,Himage):
+
+        location = '/home/retr0/ACTurnipsNewPostTracker'
+        file = 'lolz.bmp'
+        path = os.path.join(location, file)
+
         #/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",10)
         fontsmall = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 8)
@@ -66,6 +58,16 @@ class requestBot:
 
         offset = margin
         for post in self.postArray:
-            for line in textwrap.wrap(post.toString(), width=10):
-                draw.text((margin, offset), line, font=fontsmall, fill="#aa0000")
+            for line in textwrap.wrap(post.toString(), width=40):
+                draw.text((margin, offset), line, font=fontsmall)
                 offset += font.getsize(line)[1]
+
+        try:
+            os.remove(path)
+            # print("% s removed successfully" % path)
+        except OSError as error:
+            r = 1;
+
+        Himage = Himage.save("lolz.bmp")
+        for post in self.postArray:
+            print(post.toString())
