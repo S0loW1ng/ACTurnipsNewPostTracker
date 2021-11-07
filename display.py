@@ -6,12 +6,13 @@ from PIL import Image,ImageDraw,ImageFont
 
 
 epd = epd2in13b_V3.EPD()
-HRYimage = Image.new('1', (epd.height, epd.width), 0)
+HRYimage = Image.new('1', (epd.height, epd.width), 0xFF)
 epd.init()
 epd.Clear()
-time.sleep(4)
+time.sleep(1)
 Himage = Image.open("./lolz.bmp")  # 0xFF: clear the f$
 epd.display(epd.getbuffer(Himage),epd.getbuffer(HRYimage))
+time.sleep(2)
 epd.sleep()
 
 
