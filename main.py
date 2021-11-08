@@ -16,7 +16,7 @@ def task():
     bot.displayPrices()
     print("______________________________________________________________________")
 def displayUpdate():
-    os.popen('sh ./display.sh')
+    os.popen('sh /home/pi/ACTurnipsNewPostTracker/display.sh')
 
 if __name__ == '__main__':
     sch.every(45).seconds.do(task)
