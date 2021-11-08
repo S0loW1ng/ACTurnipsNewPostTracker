@@ -19,9 +19,8 @@ def displayUpdate():
     os.popen('sh ./display.sh')
 
 if __name__ == '__main__':
-    sch.every(30).seconds.do(task)
+    sch.every(45).seconds.do(task)
     sch.every(1).minute.do(displayUpdate)
 
     while (True):
         sch.run_pending()
-        time.sleep(5);

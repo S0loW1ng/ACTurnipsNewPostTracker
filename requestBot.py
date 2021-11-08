@@ -58,7 +58,7 @@ class requestBot:
 
         offset = margin
         for post in self.postArray:
-            for line in textwrap.wrap(post.toString(), width=40):
+            for line in textwrap.wrap(post.toString(), width=50):
                 draw.text((margin, offset), line, font=fontsmall)
                 offset += font.getsize(line)[1]
 
