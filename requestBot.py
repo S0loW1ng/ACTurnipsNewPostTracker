@@ -28,11 +28,11 @@ class requestBot:
             self.postArray = []
             jsonData = json.loads(request.text)
             for i in range(0, 3):
-                    self.postArray.append(post(jsonData["data"]["children"][2 + i]["data"]["title"],
-                                               jsonData["data"]["children"][2 + i]["data"]["created_utc"],
-                                               jsonData["data"]["children"][2 + i]["data"]["url"],
-                                               jsonData["data"]["children"][2 + i]["data"]["id"]))
-                    self.seenPosts.append(jsonData["data"]["children"][2 + i]["data"]["id"])
+                    self.postArray.append(post(jsonData["data"]["children"][i]["data"]["title"],
+                                               jsonData["data"]["children"][i]["data"]["created_utc"],
+                                               jsonData["data"]["children"][i]["data"]["url"],
+                                               jsonData["data"]["children"][i]["data"]["id"]))
+                    self.seenPosts.append(jsonData["data"]["children"][i]["data"]["id"])
 
         else:
             print("Error: %d" % request.status_code)

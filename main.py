@@ -4,7 +4,7 @@ import os
 from requestBot import requestBot
 import schedule as sch
 
-bot = requestBot('https://www.reddit.com/r/acturnips.json')
+bot = requestBot('https://www.reddit.com/r/acturnips/new.json')
 
 
 def print_hi(name):
