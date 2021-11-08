@@ -68,6 +68,6 @@ class requestBot:
         except OSError as error:
             r = 1;
 
-        Himage = Himage.save("lolz.bmp")
+        Himage = Himage.save("/home/pi/ACTurnipsNewPostTracker/lolz.bmp")
         for post in self.postArray:
             print(post.toString())
